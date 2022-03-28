@@ -1,0 +1,89 @@
+<div class = "container">
+    <div class = "row" >
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0 " >
+                <form  class="form-register " #f ="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+                    <h1 class="text-center mb-2" style="color: #fff">Sign Up</h1>
+                    <mat-error style="color: yellow " class="text-center" >{{status}}</mat-error>
+                    <!--NAME-->
+                    <mat-form-field  style="width: 350px" appearance="outline">
+                        <mat-label>Name:</mat-label>
+                        <input matInput placeholder="Name..." name="name" [(ngModel)]="form.name" #name = "ngModel" minlength="3" maxlength="50" required>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <mat-error *ngIf = "name.hasError('required')">The name is required</mat-error>
+                        <mat-error *ngIf ="name.hasError('minlength')"> The name must more than 3 characters </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--USERNAME-->
+                    <mat-form-field  style="width: 350px" appearance="outline" >
+                        <mat-label>Username:</mat-label>
+                        <input matInput placeholder="Username..." name="username" [(ngModel)]="form.username" #username = "ngModel" minlength="3" maxlength="50" required>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <mat-error *ngIf = "username.hasError('required')">The username is required</mat-error>
+                        <mat-error *ngIf ="username.hasError('minlength')"> The username must more than 3 characters </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--EMAIL-->
+                    <mat-form-field  style="width: 350px" appearance="outline">
+                        <mat-label>Email:</mat-label>
+                        <input matInput placeholder="Email..." name="email" [(ngModel)]="form.email"  [formControl]="emailFormControl" required>
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf = "emailFormControl.hasError('required')">The email is required</mat-error>
+                        <mat-error *ngIf ="emailFormControl.hasError('email')"> The email invalid.Please try: Ex:cuong@gmail.com </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--PASSWORD-->
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label >Enter your password</mat-label>
+                        <input name="password" [(ngModel)]="form.password" minlength="6" maxlength="12"  #password = "ngModel" matInput [type]="hide ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf = "password.hasError('required')">The username is required</mat-error>
+                        <mat-error *ngIf ="password.hasError('minlength')"> The username must more than 6 characters </mat-error>
+                        <!--                        <mat-error *ngIf ="password.hasError('maxlength')"> The username must less 12 characters </mat-error>-->
+                    </mat-form-field>
+                    <br>
+                    <button mat-raised-button color="primary" class="btn btn-primary mb-2" >Sign up</button>
+                    <br>
+                    <a routerLink="/login" style="color: #fff; margin-top: 10px">Already registered? Click to Login!!</a>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <div class="card">-->
+<!--                <div class="text-center">-->
+<!--                    <h1>Sign Up</h1>-->
+<!--                    <h6>Register Yourself!!</h6>-->
+<!--                </div>-->
+<!--                <form>-->
+<!--                    <div class="mb-3">-->
+<!--                        <label for="exampleInputPassword1" class="form-label">Name</label>-->
+<!--                        <input type="text" class="form-control" id="exampleInputPassword1">-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                        <label for="exampleInputPassword1" class="form-label">Username</label>-->
+<!--                        <input type="text" class="form-control" id="exampleInputPassword1">-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                        <label for="exampleInputUsername" class="form-label">Email</label>-->
+<!--                        <input type="email" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp">-->
+<!--                        &lt;!&ndash;                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                        <label for="exampleInputPassword1" class="form-label">Password</label>-->
+<!--                        <input type="password" class="form-control" id="exampleInputPassword1">-->
+<!--                    </div>-->
+<!--                    <button type="submit" class="btn btn-primary">Sign Up</button>-->
+<!--                </form>-->
+<!--                <a routerLink="/login" style="color: #fff; margin-top: 10px">Already registered? Click to Login!!</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
