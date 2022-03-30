@@ -1,21 +1,51 @@
+<!--<nav class="docs-navbar-header" aria-label="Top Toolbar">-->
+<!--  <a mat-button class="docs-button" routerLink="/" aria-label="Angular Material">-->
+<!--    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/angular-white-transparent.svg"-->
+<!--      alt="">-->
+<!--    <span>Audio Player</span>-->
+<!--  </a>-->
+
+<!--  <div class="flex-spacer"></div>-->
+<!--  <app-theme-picker></app-theme-picker>-->
+<!--  <a mat-button class="docs-button docs-navbar-hide-small" target="_blank" href="https://github.com/vmudigal/ngx-audio-player"-->
+<!--    aria-label="GitHub Repository">-->
+<!--    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"-->
+<!--      alt="">-->
+<!--    GitHub-->
+<!--  </a>-->
+<!--  <a mat-icon-button class="docs-button docs-navbar-show-small" href="https://github.com/vmudigal/ngx-audio-player"-->
+<!--    aria-label="GitHub Repository">-->
+<!--    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"-->
+<!--      alt="">-->
+<!--  </a>-->
+<!--</nav>-->
 <nav class="docs-navbar-header" aria-label="Top Toolbar">
   <a mat-button class="docs-button" routerLink="/" aria-label="Angular Material">
     <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/angular-white-transparent.svg"
-      alt="">
-    <span>Audio Player</span>
+         alt="">
+    <span>Hanbisoft</span>
+  </a>
+  <a *ngIf="!checkLogin" mat-button class="docs-button" routerLink="register" aria-label="Angular Material">
+    <span>Register</span>
+  </a>
+  <a *ngIf="!checkLogin"  mat-button class="docs-button" routerLink="login" aria-label="Angular Material">
+    <span>Login</span>
   </a>
 
-  <div class="flex-spacer"></div>
-  <app-theme-picker></app-theme-picker>
-  <a mat-button class="docs-button docs-navbar-hide-small" target="_blank" href="https://github.com/vmudigal/ngx-audio-player"
-    aria-label="GitHub Repository">
-    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"
-      alt="">
-    GitHub
+  <a *ngIf=" checkLogin"  mat-button class="docs-button" routerLink="user-account" aria-label="Angular Material">
+    <mat-icon color="white"> account_circle</mat-icon>
+    <span>{{name}}</span>
   </a>
-  <a mat-icon-button class="docs-button docs-navbar-show-small" href="https://github.com/vmudigal/ngx-audio-player"
-    aria-label="GitHub Repository">
-    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"
-      alt="">
+  <a mat-button class="docs-button" routerLink="create-temp" aria-label="Angular Material">
+    <span>Add New Temperature</span>
+  </a>
+  <a mat-button class="docs-button" routerLink="list-temp" aria-label="Angular Material">
+    <span>Show List Temperature</span>
+  </a>
+
+  <a *ngIf=" checkLogout"  mat-button class="docs-button" routerLink="user-account" aria-label="Angular Material" (click)="logOut()">
+    <!--      <mat-icon color="white"> account_circle</mat-icon>-->
+    <span>Logout</span>
   </a>
 </nav>
+

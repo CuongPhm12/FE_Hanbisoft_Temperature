@@ -13,6 +13,6 @@ export class UserAccountComponent implements OnInit {
   ngOnInit(): void {
   }
 logOut(){
-    this.tokenService.logOut()
+    this.tokenService.logOut();
 }
 }

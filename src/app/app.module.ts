@@ -21,34 +21,64 @@ import { MatButtonModule } from '@angular/material/button';
 
 import {NavBarModule} from './shared/navbar';
 import {FooterModule} from './shared/footer';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {httpInterceptorProviders} from '../security/auth.interceptor';
+import {MatDialogModule} from '@angular/material/dialog';
+import {RegisterComponent} from './form-login/register/register.component';
+import {LoginComponent} from './form-login/login/login.component';
+import {UserAccountComponent} from './form-login/user-account/user-account.component';
+import { ListTemperatureComponent } from './temperature-manager/list-temperature/list-temperature.component';
+import { CreateTemperatureComponent } from './temperature-manager/create-temperature/create-temperature.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
+
+
+
+
+
 
 export const appRoutes: Routes = [
-  { path: '', component: HomeComponent, data: { title: 'Home' } },
-  {
-    path: 'guide/getting-started',
+  { path: '', component: HomeComponent, data: { title: 'Home' }},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+    {path: 'user-account', component: UserAccountComponent},
+    {path: 'create-temp', component: CreateTemperatureComponent},
+    {path: 'list-temp', component: ListTemperatureComponent},
+    {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: { title: 'Getting Started' }
   }
 ];
 
+
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, LoginComponent, RegisterComponent, UserAccountComponent, ListTemperatureComponent, CreateTemperatureComponent],
   imports: [
-    HttpClientModule,
-    BrowserModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    NavBarModule, FooterModule,
-    NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, { useHash: false })
+      FormsModule,
+      HttpClientModule,
+      BrowserModule,
+      MatCardModule,
+      MatToolbarModule,
+      MatIconModule,
+      MatRadioModule,
+      MatCheckboxModule,
+      MatSlideToggleModule,
+      MatButtonModule,
+      BrowserAnimationsModule,
+      NavBarModule, FooterModule,
+      MatInputModule,
+      NgxAudioPlayerModule,
+      RouterModule.forRoot(appRoutes, {useHash: false}),
+      MatFormFieldModule,
+      ReactiveFormsModule,
+      MatDialogModule,
+      MatDatepickerModule,
+      MatNativeDateModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
