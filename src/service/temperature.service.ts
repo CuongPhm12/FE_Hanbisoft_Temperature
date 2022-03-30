@@ -13,6 +13,8 @@ API_DELETE_TEMP = environment.API_LOCAL_USER + 'delete-temp';
 API_EDIT_TEMP = environment.API_LOCAL_USER + 'edit-temp';
 API_DETAIL_TEMP = environment.API_LOCAL_USER + 'find-temp';
 API_CREATE_TEMP = environment.API_LOCAL_USER + 'create-temp';
+API_SEARCH_TEMP = environment.API_LOCAL_USER + 'search-temp?datetime=';
+
   constructor(private http: HttpClient) { }
 
   listTempt():Observable<Temperature[]>{
@@ -31,6 +33,9 @@ API_CREATE_TEMP = environment.API_LOCAL_USER + 'create-temp';
 
   detailsTemp(id: number): Observable<Temperature>{
     return this.http.get<Temperature>(this.API_DETAIL_TEMP + '/' + id);
+  }
+  searchTemp(datetime:Date,name:string):Observable<Temperature>{
+    return this.http.get<Temperature>(this.API_SEARCH_TEMP+ datetime + '&name=' + name);
   }
 
 }

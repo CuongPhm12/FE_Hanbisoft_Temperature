@@ -1,41 +1,30 @@
-<mat-card style="margin: 50px 0">
+<mat-card >
     <div>
         <h2 style="text-align: center">List Staff's Health Check</h2>
     </div>
-    <div class="container-fluid">
-        <form [formGroup]="searchTemp" (ngSubmit)="search()">
-            <div class=" search row d-flex justify-content-md-end mb-4 text-right float-right">
-                <!--                <div class="col-xl-2 col-12">-->
-                <!--                </div>-->
-                <div class="col-xl-2 col-md-3 form-group" style="text-align: center">
-                    <label for="name">Name </label>
-                    <input id="name" class="form-control" type="text" formControlName="name">
-                </div>
-                <div class="col-xl-2 col-md-3 form-group" style="text-align: right">
-                    <div style="text-align: center">
-                        <label for="position">Position</label>
-                    </div>
-                    <div>
-                        <input type="text" id="position" class="form-control" formControlName="position">
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-3 form-group" style="text-align: right">
-                    <label for="status">Status</label>
-                    <select id="status" class="form-control" formControlName="status">
-                        <option [value]="'true'">True</option>
-                        <option [value]="'false'">False</option>
-                    </select>
-                </div>
-                <div class="col-xl-2 col-4" style="text-align: right">
-                    <br>
-                    <button class="btn btn-success mt-xl-2"><i class="fa fa-search"></i>Search</button>
-                </div>
-            </div>
-        </form>
+
+    <div class="container mt-0">
+        <h2>Danh sách bệnh nhân</h2>
+    </div>
+    <div class="search row d-flex justify-content-xl-end justify-content-center mb-4 text-center">
+        <div class="col-xl-2 col-md-3">
+            <label for="datetime">Date</label>
+            <input (keydown.enter)="getSearch()" [(ngModel)]="datetime" id="datetime" class="form-control" type="date"
+                   placeholder="Input Datetime">
+        </div>
+        <div class="col-xl-2 col-md-3">
+            <label for="name">Name</label>
+            <input (keydown.enter)="getSearch()" [(ngModel)]="name" id="name" class="form-control" type="text"
+                   placeholder="Name" >
+        </div>
+        <div class="col-xl-2 col-4 mt-xl-4 mt-md-3 mt-2 d-xl-flex justify-content-xl-end">
+            <button style="background-color: #377DFF" (click)="getSearch()" class="btn btn-success mt-2"><i class="fa fa-search" ></i> Search</button>
+        </div>
     </div>
     <div class="container mt-0">
-        <button class="btn btn-success mt-2 mb-md-3" routerLink="/create-temp"><i class="fa fa-plus"></i> Create Temperature
+        <button style="background-color: #377DFF" class="btn btn-success mt-2 mb-md-3" routerLink="/create-temp"><i class="fa fa-plus"></i> Create Temperature
         </button>
+        <mat-icon>register</mat-icon>
     </div>
 
 
@@ -44,14 +33,14 @@
 <!--            <h2 style="text-align: center">List Staff's Health Check</h2>-->
 <!--        </div>-->
         <table class="table table-hover table-bordered">
-            <thead>
+            <thead style="background-color: #38CB89; color: #ffffff">
             <tr class="bg-table-header">
-                <th scope="col">No</th>
-                <th scope="col">Date</th>
-                <th scope="col">Name</th>
-                <th scope="col">Position</th>
-                <th scope="col">Temperature</th>
-                <th scope="col">Status </th>
+                <th class="text-center" scope="col">No</th>
+                <th class="text-center" scope="col">Date</th>
+                <th class="text-center" scope="col">Name</th>
+                <th class="text-center" scope="col">Position</th>
+                <th class="text-center" scope="col">Temperature</th>
+                <th class="text-center" scope="col">Status </th>
 
             </tr>
             </thead>
@@ -62,7 +51,7 @@
                 <td>{{temp.user.name}}</td>
                 <td>{{temp.user.position}}</td>
                 <td>{{temp.temperature}}</td>
-                <td>{{temp.user.status}}</td>
+                <td>{{temp.status}}</td>
             </tr>
             </tbody>
         </table>

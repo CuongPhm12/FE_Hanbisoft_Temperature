@@ -4,13 +4,15 @@ export class Temperature {
     private _temperature: number;
     private _datetime: Date;
     private _user: any
+    private _status: boolean
 
-    constructor(id: number, temperature: number, datetime: Date, user: any) {
+
+    constructor(id: number, temperature: number, datetime: Date, user: any, status: boolean) {
         this._id = id;
         this._temperature = temperature;
         this._datetime = datetime;
         this._user = user;
-
+        this._status = status;
     }
 
     get id(): number {
@@ -43,6 +45,22 @@ export class Temperature {
 
     set user(value: any) {
         this._user = value;
+    }
+
+    get datetime(): Date {
+        return this._datetime;
+    }
+
+    set datetime(value: Date) {
+        this._datetime = value;
+    }
+
+    get status(): boolean {
+        return this._status;
+    }
+
+    set status(value: boolean) {
+        this._status = value;
     }
 }
 

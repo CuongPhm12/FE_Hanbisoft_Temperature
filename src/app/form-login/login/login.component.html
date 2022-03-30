@@ -1,37 +1,14 @@
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-md-6">-->
-<!--            <div class="card">-->
-<!--                <div class="text-center">-->
-<!--                    <h1>Login</h1>-->
-<!--                    <h6>Please enter username & password!!</h6>-->
-<!--                </div>-->
-<!--                <form>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label for="exampleInputUsername" class="form-label">Username</label>-->
-<!--                            <input type="email" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp">-->
-<!--                        </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label for="exampleInputPassword1" class="form-label">Password</label>-->
-<!--                            <input type="password" class="form-control" id="exampleInputPassword1">-->
-<!--                        </div>-->
-<!--                        <button type="submit" class="btn btn-primary">Login</button>-->
-<!--                </form>-->
-<!--                <a routerLink="/register" style="color: #fff; margin-top: 10px" >New user? Click to signup</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
 
-<div class = "container">
+
+<div class = "container" style="min-height: 670px">
     <div class = "row" >
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0 ">
-                <h1 class="text-center" style="color: #fff">Login</h1>
-                <h6 class="text-center" style="color: yellow">Please enter username & password!!</h6>
+                <h1 class="text-center" >Login</h1>
+                <h6 class="text-center" style="color: black">Please enter username & password!!</h6>
                 <form  class="form-login" #f ="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
-                    <mat-error *ngIf="checkRegister" style="color: yellow" >Create Account Successful! Please Login</mat-error>
+                    <mat-error *ngIf="checkRegister"  style="color: deepskyblue">Create Account Successful! Please Login</mat-error>
                     <!--USERNAME-->
                     <mat-form-field  style="width: 350px" appearance="outline" >
                         <mat-label>Username: </mat-label>
@@ -55,45 +32,50 @@
                     <br>
                     <button mat-raised-button color="primary" class="btn btn-primary mb-2" >Login</button>
                     <br>
-                    <a routerLink="/register" style="color: #fff; margin-top: 10px">New user? Click to sign up</a>
+                    <a routerLink="/register" style=" margin-top: 10px" >New user? Click to sign up</a>
                 </form>
             </mat-card>
         </div>
     </div>
 </div>
 
-<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
 <!--<div class="container">-->
 <!--    <div class="row">-->
-<!--        <div class="col-md-6">-->
-<!--            <div class="card">-->
-<!--                <div class="text-center">-->
-<!--                    <h1>Sign Up</h1>-->
-<!--                    <h6>Register Yourself!!</h6>-->
+<!--        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">-->
+<!--            <div class="card card-signin my-5">-->
+<!--                <div class="card-body">-->
+<!--&lt;!&ndash;                    <mat-card style="margin: 50px 0 ">&ndash;&gt;-->
+<!--                    <h5 class="card-title text-isLoggedIncenter"> Login</h5>-->
+<!--                    <form class="form-signin" [formGroup]="formGroup" (ngSubmit)="onSubmit()">-->
+<!--                        <div class="form-label-group">-->
+<!--                            &lt;!&ndash;                            <label for="inputEmail">Tên tài khoản:</label>&ndash;&gt;-->
+<!--                            <input autofocus formControlName="username" type="text" id="inputEmail" class="form-control"-->
+<!--                                   placeholder="Username">-->
+<!--                        </div>-->
+
+<!--                        <div class="form-label-group">-->
+<!--                            &lt;!&ndash;                            <label for="inputPassword">Mật khẩu:</label>&ndash;&gt;-->
+<!--                            <input formControlName="password" type="password" id="inputPassword" class="form-control"-->
+<!--                                   placeholder="Password"-->
+<!--                                   required>-->
+<!--                        </div>-->
+<!--                        <div class="custom-control custom-checkbox mb-3">-->
+<!--                            <input type="checkbox" class="custom-control-input" id="customCheck1" formControlName="remember_me">-->
+<!--                            <label class="custom-control-label" for="customCheck1">Remember me!</label>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <p><a href="" routerLink="/reset-password" data-dismiss="modal">For got password ?</a></p>-->
+<!--                            <span>New user? Click to sign up <a  routerLink="/register">tại đây</a></span>-->
+<!--                        </div>-->
+<!--                        <button class="btn btn-lg btn-primary text-uppercase" type="submit">Sign In</button>-->
+<!--                        <button class="btn btn-lg btn-secondary text-uppercase" routerLink="" data-dismiss="modal" type="button">-->
+<!--                            Cancel-->
+<!--                        </button>-->
+<!--                    </form>-->
+<!--&lt;!&ndash;                    </mat-card>&ndash;&gt;-->
 <!--                </div>-->
-<!--                <form>-->
-<!--                    <div class="mb-3">-->
-<!--                        <label for="exampleInputPassword1" class="form-label">Name</label>-->
-<!--                        <input type="text" class="form-control" id="exampleInputPassword1">-->
-<!--                    </div>-->
-<!--                    <div class="mb-3">-->
-<!--                        <label for="exampleInputPassword1" class="form-label">Username</label>-->
-<!--                        <input type="text" class="form-control" id="exampleInputPassword1">-->
-<!--                    </div>-->
-<!--                    <div class="mb-3">-->
-<!--                        <label for="exampleInputUsername" class="form-label">Email</label>-->
-<!--                        <input type="email" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp">-->
-<!--                        &lt;!&ndash;                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                    <div class="mb-3">-->
-<!--                        <label for="exampleInputPassword1" class="form-label">Password</label>-->
-<!--                        <input type="password" class="form-control" id="exampleInputPassword1">-->
-<!--                    </div>-->
-<!--                    <button type="submit" class="btn btn-primary">Sign Up</button>-->
-<!--                </form>-->
-<!--                <a routerLink="/login" style="color: #fff; margin-top: 10px">Already registered? Click to Login!!</a>-->
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
 <!--</div>-->
-

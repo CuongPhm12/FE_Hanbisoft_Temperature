@@ -9,6 +9,15 @@ export class TokenService {
   private roles: Array<string> = [];
 
   constructor() { }
+  public logOut(){
+    window.sessionStorage.clear();
+    window.location.reload();
+  }
+  public saveTokenLocal(token: string) {
+    window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.setItem(TOKEN_KEY, token);
+  }
+
   public setToken(token:string){
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY,token);
@@ -37,9 +46,5 @@ export class TokenService {
     return this.roles
   }
 
-  public logOut(){
-    window.sessionStorage.clear();
-    window.location.reload();
-  }
 
 }

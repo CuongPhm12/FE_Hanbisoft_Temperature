@@ -8,11 +8,8 @@ import {TokenService} from '../../../service/token.service';
 })
 export class UserAccountComponent implements OnInit {
 
-  constructor(private tokenService: TokenService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-logOut(){
-    this.tokenService.logOut();
-}
 }
