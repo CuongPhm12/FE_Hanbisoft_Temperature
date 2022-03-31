@@ -7,9 +7,15 @@ import {TokenService} from '../../../service/token.service';
   styleUrls: ['./user-account.component.scss']
 })
 export class UserAccountComponent implements OnInit {
+  datetime: any;
+  temps: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+    getSearch() {
+        
+    }
 }

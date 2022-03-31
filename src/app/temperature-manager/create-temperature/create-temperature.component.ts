@@ -27,14 +27,14 @@ export class CreateTemperatureComponent implements OnInit {
     temperature:[
       {type: 'required', message: 'Please input the temperature'},
       {type: 'min', message: 'Please input the temperature greater 36'},
-      {type: 'max', message: 'Please input the temperature less 38'},
+      {type: 'max', message: 'Please input the temperature less 40'},
     ]
   }
 
   ngOnInit(): void {
     this.formCreateTemp = new FormGroup({
       datetime : new FormControl('',[Validators.required]),
-      temperature : new FormControl('',[Validators.required, Validators.min(36), Validators.max(38)]),
+      temperature : new FormControl('',[Validators.required, Validators.min(36), Validators.max(40)]),
       status: new FormControl('')
     })
   }

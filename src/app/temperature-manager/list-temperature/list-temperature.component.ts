@@ -16,7 +16,8 @@ export class ListTemperatureComponent implements OnInit {
   user: User;
   // loading: boolean;
     searchTemp: FormGroup;
-  datetime: any;
+  fdate: any;
+  tdate: any;
   name: '';
   // defaultValue :""
   constructor(private temperatureService: TemperatureService){ }
@@ -34,7 +35,7 @@ export class ListTemperatureComponent implements OnInit {
      // });
   }
   getSearch() {
-    this.temperatureService.searchTemp(this.datetime, this.name).subscribe(data => {
+    this.temperatureService.searchTemp(this.fdate,this.tdate, this.name).subscribe(data => {
       console.log('searchData'+data);
       if (data === null) {
         alert("No record match!")

@@ -1,16 +1,19 @@
+<div class="container" style="min-height: 670px;margin-top:100px">
 <mat-card >
-    <div>
-        <h2 style="text-align: center">List Staff's Health Check</h2>
-    </div>
 
     <div class="container mt-0">
-        <h2>Danh sách bệnh nhân</h2>
+        <h2 style="text-align: center">List Staff's Health Check</h2>
     </div>
     <div class="search row d-flex justify-content-xl-end justify-content-center mb-4 text-center">
         <div class="col-xl-2 col-md-3">
-            <label for="datetime">Date</label>
-            <input (keydown.enter)="getSearch()" [(ngModel)]="datetime" id="datetime" class="form-control" type="date"
-                   placeholder="Input Datetime">
+            <label for="fdate">From Date</label>
+            <input (keydown.enter)="getSearch()" [(ngModel)]="fdate" id="fdate" class="form-control" type="date"
+                   placeholder="Input From Date">
+        </div>
+        <div class="col-xl-2 col-md-3">
+            <label for="tdate">To Date</label>
+            <input (keydown.enter)="getSearch()" [(ngModel)]="tdate" id="tdate" class="form-control" type="date"
+                   placeholder="Input To Date">
         </div>
         <div class="col-xl-2 col-md-3">
             <label for="name">Name</label>
@@ -41,7 +44,6 @@
                 <th class="text-center" scope="col">Position</th>
                 <th class="text-center" scope="col">Temperature</th>
                 <th class="text-center" scope="col">Status </th>
-
             </tr>
             </thead>
             <tbody style="font-size: 16px;text-align: center">
@@ -52,6 +54,7 @@
                 <td>{{temp.user.position}}</td>
                 <td>{{temp.temperature}}</td>
                 <td>{{temp.status}}</td>
+
             </tr>
             </tbody>
         </table>
@@ -85,3 +88,4 @@
 <!--        </nav>-->
 <!--    </div>-->
 </mat-card>
+</div>

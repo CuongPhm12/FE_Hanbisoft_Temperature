@@ -37,9 +37,6 @@ import {MatNativeDateModule} from '@angular/material/core';
 
 
 
-
-
-
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' }},
   {path: 'register', component: RegisterComponent},
