@@ -31,6 +31,10 @@ export class UserAccountComponent implements OnInit {
     }
 
   ngOnInit(): void {
+      this.temperatureService.listTempByUser().subscribe((data:Temperature[])=>{
+          this.listByUSer = data;
+          // console.log(this.listByUSer);
+      });
       this.formListTemp = new FormGroup({
           fdate : new FormControl('',[Validators.required]),
           tdate : new FormControl('',[Validators.required])
@@ -43,7 +47,7 @@ listTempByUSer(){
     })
 }
     getSearch() {
-        this.temperatureService.searchTemp(this.fdate,this.tdate,'').subscribe(data => {
+        this.temperatureService.searchTempByUser(this.fdate,this.tdate).subscribe(data => {
             // console.log('searchData'+data);
             if (data === null) {
                 this.listByUSer = [];

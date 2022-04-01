@@ -49,7 +49,7 @@ export class CreateTemperatureComponent implements OnInit {
   save() {
     console.log('new tempp'+JSON.stringify(this.formCreateTemp.value))
     this.temperatureService.createTemp(this.formCreateTemp.value).subscribe(()=>{
-      this.router.navigateByUrl('/list-temp').then(r=>alert("Create Successfully!"));
+      this.router.navigateByUrl('/user-account').then(r=>alert("Create Successfully!"));
     })
 }
 }
