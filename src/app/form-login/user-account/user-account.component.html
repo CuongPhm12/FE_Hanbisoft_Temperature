@@ -9,15 +9,25 @@
                     </div>
                     <div class="search row d-flex justify-content-xl-end justify-content-center mb-4 text-center">
                         <div class="col-xl-2 col-md-3">
-                            <label for="datetime">Date</label>
-                            <input (keydown.enter)="getSearch()" [(ngModel)]="datetime" id="datetime" class="form-control" type="date"
-                                   placeholder="Input Datetime">
+                            <label for="fdate">From Date</label>
+                            <input (keydown.enter)="getSearch()" [(ngModel)]="fdate" id="fdate"  class="form-control" type="date"
+                                   placeholder="Input From Date">
+                            <div class="text-danger" *ngFor="let validation of validation_messages.fdate">
+                                <div class="error-message"
+                                     *ngIf="formListTemp.get('fdate').hasError(validation.type) && (formListTemp.get('fdate').dirty || formListTemp.get('fdate').touched)">
+                                    {{validation.message}}</div>
+                            </div>
                         </div>
-<!--                        <div class="col-xl-2 col-md-3">-->
-<!--                            <label for="name">Name</label>-->
-<!--                            <input (keydown.enter)="getSearch()" [(ngModel)]="name" id="name" class="form-control" type="text"-->
-<!--                                   placeholder="Name" >-->
-<!--                        </div>-->
+                        <div class="col-xl-2 col-md-3">
+                            <label for="tdate">To Date</label>
+                            <input (keydown.enter)="getSearch()" [(ngModel)]="tdate" id="tdate"  class="form-control" type="date"
+                                   placeholder="Input To Date">
+                            <div class="text-danger" *ngFor="let validation of validation_messages.tdate">
+                                <div class="error-message"
+                                     *ngIf="formListTemp.get('tdate').hasError(validation.type) && (formListTemp.get('tdate').dirty || formListTemp.get('tdate').touched)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
                         <div class="col-xl-2 col-4 mt-xl-4 mt-md-3 mt-2 d-xl-flex justify-content-xl-end">
                             <button style="background-color: #377DFF" (click)="getSearch()" class="btn btn-success mt-2"><i class="fa fa-search" ></i> Search</button>
                         </div>
@@ -25,7 +35,7 @@
                     <div class="container mt-0">
                         <button style="background-color: #377DFF" class="btn btn-success mt-2 mb-md-3" routerLink="/create-temp"><i class="fa fa-plus"></i> Create Temperature
                         </button>
-                        <mat-icon>register</mat-icon>
+<!--                        <mat-icon>register</mat-icon>-->
                     </div>
 
 
@@ -43,7 +53,7 @@
                             </tr>
                             </thead>
                             <tbody style="font-size: 16px;text-align: center">
-                            <tr *ngFor="let temp of temps,index as i">
+                            <tr *ngFor="let temp of listByUSer,index as i">
                                 <td>{{i + 1}}</td>
                                 <td style="text-align: left">{{temp.datetime}}</td>
                                 <td>{{temp.temperature}}</td>

@@ -1,12 +1,12 @@
 export class User{
     private _id : number;
    private _name: string;
-   private username : string;
-    private email : string;
-    private password : string;
+   private _username : string;
+    private _email : string;
+    private _password : string;
     private _position : string;
     private _status:  string;
-    private roles : string;
+    private _roles : string;
 
 
     get id(): number {
@@ -31,6 +31,38 @@ export class User{
 
     set position(value: string) {
         this._position = value;
+    }
+
+    get username(): string {
+        return this._username;
+    }
+
+    set username(value: string) {
+        this._username = value;
+    }
+
+    get email(): string {
+        return this._email;
+    }
+
+    set email(value: string) {
+        this._email = value;
+    }
+
+    get password(): string {
+        return this._password;
+    }
+
+    set password(value: string) {
+        this._password = value;
+    }
+
+    get roles(): string {
+        return this._roles;
+    }
+
+    set roles(value: string) {
+        this._roles = value;
     }
 
     get status(): string {

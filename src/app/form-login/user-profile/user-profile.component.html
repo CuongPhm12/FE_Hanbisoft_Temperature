@@ -1,0 +1,108 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <div class="container" style="min-height: 670px;margin-top:100px">
+                <mat-card >
+                    <table >
+                        <tr>
+                            <th>Name</th>
+                            <td>{{user.name}}</td>
+
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                            <th>Position</th>
+                            <td>{{user.position}}</td>
+                        </tr>
+                    </table>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Update
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Infomation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form  class="form-register " #f ="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+                                        <h1 class="text-center mb-2" >Edit Information</h1>
+<!--                                        <mat-error  class="text-center" style="color: black">{{status}}</mat-error>-->
+                                        <!--NAME-->
+                                        <mat-form-field  style="width: 350px" appearance="outline">
+                                            <mat-label>Name:</mat-label>
+                                            <input [ngModelOptions]="{standalone: true}" matInput placeholder="Name..." name="name" [(ngModel)]="user.name" #name = "ngModel" minlength="3" maxlength="50" required>
+<!--                                            <mat-icon matSuffix>account_circle</mat-icon>-->
+                                            <mat-error *ngIf = "name.hasError('required')">The name is required</mat-error>
+                                            <mat-error *ngIf ="name.hasError('minlength')"> The name must more than 3 characters </mat-error>
+                                        </mat-form-field>
+                                        <br>
+                                        <!--USERNAME-->
+                                        <mat-form-field  style="width: 350px" appearance="outline" >
+                                            <mat-label>Username:</mat-label>
+                                            <input [ngModelOptions]="{standalone: true}" disabled matInput placeholder="Username..." name="username" [(ngModel)]="user.username" #username = "ngModel" minlength="3" maxlength="50" required>
+<!--                                            <mat-icon matSuffix>account_circle</mat-icon>-->
+                                            <mat-error *ngIf = "username.hasError('required')">The username is required</mat-error>
+                                            <mat-error *ngIf ="username.hasError('minlength')"> The username must more than 3 characters </mat-error>
+                                        </mat-form-field>
+                                        <br>
+                                        <!--EMAIL-->
+                                        <mat-form-field  style="width: 350px" appearance="outline">
+                                            <mat-label>Email:</mat-label>
+                                            <input [ngModelOptions]="{standalone: true}" matInput placeholder="Email..." name="email" [(ngModel)]="user.email"   required>
+<!--                                            <mat-icon matSuffix>email</mat-icon>-->
+<!--                                            <mat-error *ngIf = "emailFormControl.hasError('required')">The email is required</mat-error>-->
+<!--                                            <mat-error *ngIf ="emailFormControl.hasError('email')"> The email invalid.Please try: Ex:cuong@gmail.com </mat-error>-->
+                                        </mat-form-field>
+                                        <br>
+                                        <!--POSITION-->
+                                        <mat-form-field  style="width: 350px" appearance="outline">
+                                            <mat-label style="margin-top: -33px;font-size: 12px;">Position:</mat-label>
+
+                                            <input [ngModelOptions]="{standalone: true}" matInput hidden placeholder="Email..." name="email" [(ngModel)]="user.position"   required>
+                                            <select style="width: 80%" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.position" id="status" >
+                                                <option value="manager" >Manager</option>
+                                                <option value="staff">Staff</option>
+                                            </select>
+<!--                                            <mat-icon matSuffix>email</mat-icon>-->
+<!--                                            <mat-label>Category</mat-label>-->
+<!--                                            <mat-select name="position"-->
+<!--                                                        [(ngModel)]="user.position"-->
+<!--                                                        [ngModelOptions]="{standalone: true}">-->
+<!--                                                <mat-option *ngFor="let p of position" [value]="p">-->
+<!--                                                    {{p}}-->
+<!--                                                </mat-option>-->
+<!--                                            </mat-select>-->
+<!--                                            <mat-icon color="accent" matSuffix>category</mat-icon>-->
+<!--                                            <mat-error *ngIf = "emailFormControl.hasError('required')">The email is required</mat-error>-->
+<!--                                            <mat-error *ngIf ="emailFormControl.hasError('email')"> The email invalid.Please try: Ex:cuong@gmail.com </mat-error>-->
+                                        </mat-form-field>
+                                        <br>
+<!--                                        <a routerLink="/login" style=" margin-top: 10px" >Already registered? Click to Login!!</a>-->
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-card>
+            </div>
+
+        </div>
+    </div>
+</div>

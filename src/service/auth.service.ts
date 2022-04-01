@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {JwtResponse} from '../app/model/JwtResponse';
 import {SignInForm} from '../app/model/SignInForm';
 import {SignUpForm} from '../app/model/SignUpForm';
+import {User} from '../app/model/User';
 
 
 @Injectable({
@@ -15,8 +16,13 @@ export class AuthService {
 // API_LOCAL
   private  API_SIGNUP = environment.API_LOCAL + 'signup';
   private API_SIGNIN = environment.API_LOCAL + 'signin';
+  private API_USER_PROFILE = environment.API_LOCAL + 'currentUser';
   data: boolean;
   constructor(private http: HttpClient) {}
+  getCurrentUser():Observable<User>{
+      return this.http.get<User>(this.API_USER_PROFILE)
+
+  }
   signUp(signUp: SignUpForm): Observable<any>{
     return this.http.post<any>(this.API_SIGNUP, signUp);
   }

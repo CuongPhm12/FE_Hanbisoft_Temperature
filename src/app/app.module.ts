@@ -32,18 +32,21 @@ import {UserAccountComponent} from './form-login/user-account/user-account.compo
 import { ListTemperatureComponent } from './temperature-manager/list-temperature/list-temperature.component';
 import { CreateTemperatureComponent } from './temperature-manager/create-temperature/create-temperature.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
+import { UserProfileComponent } from './form-login/user-profile/user-profile.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
 
 export const appRoutes: Routes = [
-  { path: '', component: HomeComponent, data: { title: 'Home' }},
+  // { path: '', component: HomeComponent, data: { title: 'Home' }},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
     {path: 'user-account', component: UserAccountComponent},
     {path: 'create-temp', component: CreateTemperatureComponent},
     {path: 'list-temp', component: ListTemperatureComponent},
+    {path: 'user-profile', component: UserProfileComponent},
     {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: { title: 'Getting Started' }
@@ -52,29 +55,29 @@ export const appRoutes: Routes = [
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, LoginComponent, RegisterComponent, UserAccountComponent, ListTemperatureComponent, CreateTemperatureComponent],
-  imports: [
-      FormsModule,
-      HttpClientModule,
-      BrowserModule,
-      MatCardModule,
-      MatToolbarModule,
-      MatIconModule,
-      MatRadioModule,
-      MatCheckboxModule,
-      MatSlideToggleModule,
-      MatButtonModule,
-      BrowserAnimationsModule,
-      NavBarModule, FooterModule,
-      MatInputModule,
-      NgxAudioPlayerModule,
-      RouterModule.forRoot(appRoutes, {useHash: false}),
-      MatFormFieldModule,
-      ReactiveFormsModule,
-      MatDialogModule,
-      MatDatepickerModule,
-      MatNativeDateModule,
-  ],
+  declarations: [AppComponent, GettingStartedComponent, LoginComponent, RegisterComponent, UserAccountComponent, ListTemperatureComponent, CreateTemperatureComponent, UserProfileComponent],
+    imports: [
+        FormsModule,
+        HttpClientModule,
+        BrowserModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        MatSlideToggleModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        NavBarModule, FooterModule,
+        MatInputModule,
+        NgxAudioPlayerModule,
+        RouterModule.forRoot(appRoutes, {useHash: false}),
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatDatepickerModule,
+        MatNativeDateModule, MatOptionModule, MatSelectModule,
+    ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })

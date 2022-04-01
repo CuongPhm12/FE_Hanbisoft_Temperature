@@ -7,17 +7,27 @@
     <div class="search row d-flex justify-content-xl-end justify-content-center mb-4 text-center">
         <div class="col-xl-2 col-md-3">
             <label for="fdate">From Date</label>
-            <input (keydown.enter)="getSearch()" [(ngModel)]="fdate" id="fdate" class="form-control" type="date"
+            <input (keydown.enter)="getSearch()" [(ngModel)]="fdate" id="fdate" #fromDate  class="form-control" type="date"
                    placeholder="Input From Date">
+            <div class="text-danger" *ngFor="let validation of validation_messages.fdate">
+                <div class="error-message"
+                     *ngIf="formListTemp.get('fdate').hasError(validation.type) && (formListTemp.get('fdate').dirty || formListTemp.get('fdate').touched)">
+                    {{validation.message}}</div>
+            </div>
         </div>
         <div class="col-xl-2 col-md-3">
             <label for="tdate">To Date</label>
-            <input (keydown.enter)="getSearch()" [(ngModel)]="tdate" id="tdate" class="form-control" type="date"
+            <input (keydown.enter)="getSearch()" [(ngModel)]="tdate" id="tdate" #toDate class="form-control" type="date"
                    placeholder="Input To Date">
+            <div class="text-danger" *ngFor="let validation of validation_messages.tdate">
+                <div class="error-message"
+                     *ngIf="formListTemp.get('tdate').hasError(validation.type) && (formListTemp.get('tdate').dirty || formListTemp.get('tdate').touched)">
+                    {{validation.message}}</div>
+            </div>
         </div>
         <div class="col-xl-2 col-md-3">
             <label for="name">Name</label>
-            <input (keydown.enter)="getSearch()" [(ngModel)]="name" id="name" class="form-control" type="text"
+            <input (keydown.enter)="toDate.required && fromDate.required && getSearch()" [(ngModel)]="name" id="name" class="form-control" type="text"
                    placeholder="Name" >
         </div>
         <div class="col-xl-2 col-4 mt-xl-4 mt-md-3 mt-2 d-xl-flex justify-content-xl-end">
@@ -60,32 +70,32 @@
         </table>
     </div>
 
-    <!--    phân trang-->
-<!--    <div class="mt-3">-->
-<!--        <nav aria-label="Page navigation example">-->
-<!--            <ul class="pagination d-flex justify-content-md-end justify-content-center">-->
-<!--                <li class="page-item"><a class="page-link" (click)="firtPage()">Đầu</a></li>-->
-<!--                <li class="page-item"><a class="page-link" (click)="prviousPage()">Trang trước</a></li>-->
-<!--                &lt;!&ndash;                    <li class="page-item active"><a class="page-link" href="#">1</a></li>&ndash;&gt;-->
-<!--                <li class="page-item col-md-1 col-2  px-0">-->
-<!--                    &lt;!&ndash;                        <input class="form-control shadow-none rounded-0" type="text" placeholder="2/5">&ndash;&gt;-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="number" min="1" [max]="totalPagination" class="form-control text-right rounded-0"-->
-<!--                               placeholder="2" aria-label="Username"-->
-<!--                               aria-describedby="basic-addon1" [value]="indexPagination"-->
-<!--                               (change)="indexPaginationChage($event.target.value)">-->
-<!--                        <div class="input-group-prepend">-->
-<!--                            <span class="input-group-text" id="basic-addon1">{{totalPagination}}</span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </li>-->
-<!--                <li class="page-item">-->
-<!--                    <button class="btn btn-primary rounded-0" (click)="findPaginnation()">Đi</button>-->
-<!--                </li>-->
-<!--                <li class="page-item"><a class="page-link" (click)="nextPage()">Trang kế</a></li>-->
-<!--                <li class="page-item"><a class="page-link" (click)="lastPage()">Cuối</a></li>-->
-<!--            </ul>-->
-<!--        </nav>-->
-<!--    </div>-->
+
+    <div class="mt-3">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination d-flex justify-content-md-end justify-content-center">
+                <li class="page-item"><a class="page-link" (click)="firtPage()">First</a></li>
+                <li class="page-item"><a class="page-link" (click)="prviousPage()">Previous</a></li>
+                <!--                    <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
+                <li class="page-item col-md-1 col-2  px-0">
+                    <!--                        <input class="form-control shadow-none rounded-0" type="text" placeholder="2/5">-->
+                    <div class="input-group">
+                        <input type="number" min="1" [max]="totalPagination" class="form-control text-right rounded-0"
+                               placeholder="2" aria-label="Username"
+                               aria-describedby="basic-addon1" [value]="indexPagination"
+                               (change)="indexPaginationChage($event.target.value)">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">{{totalPagination}}</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="page-item">
+                    <button class="btn btn-primary rounded-0" (click)="findPaginnation()">Go</button>
+                </li>
+                <li class="page-item"><a class="page-link" (click)="nextPage()">Next Page</a></li>
+                <li class="page-item"><a class="page-link" (click)="lastPage()">Last Page</a></li>
+            </ul>
+        </nav>
+    </div>
 </mat-card>
 </div>
