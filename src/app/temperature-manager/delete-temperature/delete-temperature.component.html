@@ -1,0 +1,8 @@
+<h3 style="color: red">Confirm Delete !</h3>
+<hr>
+<h5>Are you sure to delete this temperature<label style="color: red"> {{deleteName}}</label> No?</h5>
+<p style="color: red">This action cannot be undone !</p>
+<div class="row d-flex justify-content-end">
+    <button class="btn btn-success" style="width: 100px;margin-right: 20px" data-dismiss="modal" id="closeModal"  >Undo</button>
+    <button class="btn btn-danger mr-3" style="width: 100px" (click)="deleteTemp()"  data-dismiss="modal">Delete</button>
+</div>

@@ -42,7 +42,7 @@ listTempByUserFrDateToDate(fdate:Date,tdate:Date):Observable<Temperature[]>{
     return this.http.put<Temperature>(this.API_EDIT_TEMP + '/' + id, temperature);
   }
 
-  detailsTemp(id: string): Observable<Temperature>{
+  detailsTemp(id): Observable<Temperature>{
     return this.http.get<Temperature>(this.API_DETAIL_TEMP + '/' + id);
   }
   searchTemp(fdate:Date,tdate:Date,name:string):Observable<Temperature>{

@@ -12,10 +12,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class UserAccountComponent implements OnInit {
   // datetime: any;
   // temps: any;
+    deleteId: number;
+    deleteName: string;
   listByUSer;
     fdate: any;
     tdate: any;
     formListTemp: FormGroup;
+    public tempId ='';
+    public name='';
 
 
   constructor( private temperatureService: TemperatureService) {
@@ -30,10 +34,11 @@ export class UserAccountComponent implements OnInit {
         ]
     }
 
+
   ngOnInit(): void {
       this.temperatureService.listTempByUser().subscribe((data:Temperature[])=>{
           this.listByUSer = data;
-          // console.log(this.listByUSer);
+          console.log(data);
       });
       this.formListTemp = new FormGroup({
           fdate : new FormControl('',[Validators.required]),
@@ -56,5 +61,8 @@ listTempByUSer(){
                 this.listByUSer = data;
             }
         });
+    }
+    deleteSuccess() {
+        this.ngOnInit();
     }
 }

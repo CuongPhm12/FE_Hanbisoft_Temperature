@@ -25,6 +25,8 @@ export class NavBarComponent implements OnInit{
   name: string;
   checkLogin = false;
   checkLogout = false;
+  checkrole = false;
+  role;
   constructor(private tokenService: TokenService,
            ){
   }
@@ -37,10 +39,13 @@ export class NavBarComponent implements OnInit{
     if(this.tokenService.getToken()){
       this.checkLogout = true;
       // this.name = this.tokenService.getName()
+      // this.name = this.tokenService.getName()
     }
-    // this.tempService.listTemp().subscribe(data =>{
-    //   this.temps = data;
-    // });
+
+    this.role = this.tokenService.getRole()
+    if(this.role = 'ADMIN'){
+      this.checkrole=true;
+    }
   }
   // openDialog() {
   //   this.dialog.open(DialogComponent, {

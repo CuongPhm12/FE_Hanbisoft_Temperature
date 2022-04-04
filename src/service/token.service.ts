@@ -9,6 +9,10 @@ export class TokenService {
   private roles: Array<string> = [];
 
   constructor() { }
+  public getUserId():number{
+    // @ts-ignore
+    return window.sessionStorage.getItem(USER_ID);
+  }
   public logOut(){
     window.sessionStorage.clear();
     window.location.reload();

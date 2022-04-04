@@ -1,0 +1,60 @@
+
+        <div class="container" style="min-height: 670px;margin-top:200px">
+            <mat-card style="margin: 50px 0">
+                <h2 class="mb-4 text-center">Update Information</h2>
+            <form [formGroup]="formGroup">
+                    <div class="form-group row mt-3">
+                        <div class="col-4">
+                            <label for="datetime" class="col-form-label">Date <span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-8">
+                            <input disabled id="datetime" class="form-control" formControlName="datetime" type="date" [(ngModel)]="temperature.datetime">
+                            <div class="text-danger" *ngFor="let validation of validation_messages.datetime">
+                                <div class="error-message"
+                                     *ngIf="formGroup.get('datetime').hasError(validation.type) && (formGroup.get('datetime').dirty || formGroup.get('datetime').touched)">
+                                    {{validation.message}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-3">
+                        <div class="col-4">
+                            <label for="temperature" class="mr-3">Temperature <span style="color: red">*</span></label>
+                        </div>
+                        <div class="col-8">
+                            <input type="number" min="0" id="temperature" class="form-control" formControlName="temperature" [(ngModel)]="temperature.temperature">
+                            <div class="text-danger" *ngFor="let validation of validation_messages.temperature">
+                                <div class="error-message"
+                                     *ngIf="formGroup.get('temperature').hasError(validation.type) && (formGroup.get('temperature').dirty || formGroup.get('temperature').touched)">
+                                    {{validation.message}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-3">
+                        <div class="col-4">
+                            <label class="col-form-label">Status <span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-8 row">
+                            <div class="col-5">
+                                <input class="mx-1" name="status" id="true" value="True" formControlName="status" type="radio" [(ngModel)]="temperature.status">
+                                <label for="true">True</label>
+                            </div>
+                            <div class="col-5">
+                                <input class="mx-1" name="status" id="false" value="False" formControlName="status" type="radio" [(ngModel)]="temperature.status">
+                                <label for="false">False</label>
+                            </div>
+                        </div>
+                    </div>
+                <div class="d-flex justify-content-end">
+                    <div>
+                        <button [disabled]="!formGroup.valid" style="margin-right: 20px" class="btn btn-primary"
+                                (click)="editTemp()">Update
+                        </button>
+                        <a routerLink="/user-account" class="btn btn-dark">Cancel</a>
+                    </div>
+                </div>
+            </form>
+            </mat-card>
+        </div>
+
+

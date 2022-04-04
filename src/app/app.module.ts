@@ -35,6 +35,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import { UserProfileComponent } from './form-login/user-profile/user-profile.component';
 import {MatSelectModule} from '@angular/material/select';
+import { EditTemperatureComponent } from './temperature-manager/edit-temperature/edit-temperature.component';
+import { DeleteTemperatureComponent } from './temperature-manager/delete-temperature/delete-temperature.component';
 
 
 
@@ -45,7 +47,9 @@ export const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
     {path: 'user-account', component: UserAccountComponent},
     {path: 'create-temp', component: CreateTemperatureComponent},
+    {path: 'edit-temp/:id', component: EditTemperatureComponent},
     {path: 'list-temp', component: ListTemperatureComponent},
+    {path: 'delete-temp', component: DeleteTemperatureComponent},
     {path: 'user-profile', component: UserProfileComponent},
     {path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -55,7 +59,7 @@ export const appRoutes: Routes = [
 
 
 @NgModule({
-  declarations: [AppComponent, GettingStartedComponent, LoginComponent, RegisterComponent, UserAccountComponent, ListTemperatureComponent, CreateTemperatureComponent, UserProfileComponent],
+  declarations: [AppComponent, GettingStartedComponent, LoginComponent, RegisterComponent, UserAccountComponent, ListTemperatureComponent, CreateTemperatureComponent, UserProfileComponent, EditTemperatureComponent, DeleteTemperatureComponent],
     imports: [
         FormsModule,
         HttpClientModule,
